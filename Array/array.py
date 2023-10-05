@@ -42,32 +42,33 @@ class Array:
         self.memory[idx] = item
         self.size += 1
 
-    def right_rotation(self, freq):
+    def right_rotation(self):
         if self.size == 0:
             return
 
-        for i in range(freq):
-            last_num = self.memory[self.size - 1]
-            for idx in range(self.size - 2, -1, -1):
-                self.memory[idx + 1] = self.memory[idx]
-            self.memory[0] = last_num
+        last_num = self.memory[self.size - 1]
+        for idx in range(self.size - 2, -1, -1):
+            self.memory[idx + 1] = self.memory[idx]
+        self.memory[0] = last_num
 
-
-
-    def left_rotation(self, freq):
+    def left_rotation(self):
         if self.size == 0:
             return
 
-        for i in range(freq):
-            first_num = self.memory[0]
-            for idx in range(0,self.size-1,1):
-                self.memory[idx] = self.memory[idx+1]
-            self.memory[self.size - 1] = first_num
+        first_num = self.memory[0]
+        for idx in range(0, self.size - 1, 1):
+            self.memory[idx] = self.memory[idx + 1]
+        self.memory[self.size - 1] = first_num
 
+    def right_rotate_steps(self, times):
+        times %= self.size
+        for step in range(times):
+            self.right_rotation()
 
-
-
-
+    def left_rotate_steps(self, times):
+        times %= self.size
+        for step in range(times):
+            self.left_rotation()
 
     def __len__(self):
         return self.size
@@ -100,5 +101,8 @@ if __name__ == "__main__":
     array.insert(1, -9)
     print(array)
 
-    array.left_rotation(2)
+    array.left_rotation()
+    print(array)
+
+    array.left_rotate_steps(2)
     print(array)
