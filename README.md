@@ -1,7 +1,4 @@
-# datastructures-and-algorithms
- 
-this repo contanis implementation for most commin data structures and algorithms 
+# datastructures 
+this repo contains my implementation for most common data structures
 
-
-## starting with dynamic array
 
