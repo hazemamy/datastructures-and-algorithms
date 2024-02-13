@@ -28,7 +28,7 @@
 
 ## Hash Tables
 - Key-value pairs storage.
-- Average Case:
+- Average Case: 
   - Access (search/insert/delete): O(1)
 - Worst Case (if collisions are not handled):
   - Access: O(n)
